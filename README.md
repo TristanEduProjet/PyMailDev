@@ -1,6 +1,10 @@
 # PyMailDev
 Python mail client by developpers
 
+[![Updates](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
+[![Python 3](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/python-3-shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
+
+
 ## Sujet
 > L'objectif du projet est de réaliser une application complète en python, sur une thématique de votre choix :
 > réseau (crawler web, par exemple), traitement d'image, création app web avec Django, jeu vidéo, outil de
