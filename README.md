@@ -3,6 +3,7 @@ Python mail client by developpers
 
 [![Updates](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
 [![Python 3](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/python-3-shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/191dce815d614c259c0bf146d56d0a64/badge.svg)](https://www.quantifiedcode.com/app/project/191dce815d614c259c0bf146d56d0a64)
 
 
 ## Sujet
