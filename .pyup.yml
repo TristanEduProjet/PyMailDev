@@ -1,0 +1,5 @@
+update: false
+branch: develop
+label_prs: pyup update
+branch_prefix: pyup/
+pr_prefix: "Dependencies update"
