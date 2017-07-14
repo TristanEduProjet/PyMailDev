@@ -41,7 +41,7 @@ class SendForm(BaseWidget):
         response = message.send(render={"project_name": "user/project1", "build_id": 121},
                                 to=self._to.value,
                                 smtp={"host": "smtp.gmail.com", "port": 465, "ssl": True,
-                                      "user": "olvini33", "password": "Firegloww33"})
+                                      "user": "username gmail", "password": "password gmail"})
 
         assert response.status_code == 250
         self._logs.value += "Email sent to " + self._to.value + "\n"
