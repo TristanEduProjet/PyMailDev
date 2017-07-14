@@ -36,3 +36,27 @@ opencv, ...)
 
 ### Sujet choisi
 Un client mail avec une GUI (Qt ou curses).
+
+
+### Usage
+```python
+#todo
+```
+
+### Installation
+#### Depuis PyPi :
+```shell
+pip install sm_lib
+```
+
+#### En local (copie du Git) :
+```shell
+python setup.py install
+```
+
+#### _Développeurs_
+Pour packager le programme :
+```shell
+python setup.py test
+python setup.py bdist_wheel
+```
