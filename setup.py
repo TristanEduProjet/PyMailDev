@@ -7,6 +7,13 @@ SetupTools : packaging du programme
 from setuptools import setup, find_packages
 import os
 import pymaildev
+import codecs
+try:
+    codecs.lookup('mbcs')
+except LookupError:
+    ascii = codecs.lookup('ascii')
+    func = lambda name, enc=ascii: {True: enc}.get(name=='mbcs')
+    codecs.register(func)
 
 setup(name = pymaildev.__fullname__,
       version = pymaildev.__version__,
