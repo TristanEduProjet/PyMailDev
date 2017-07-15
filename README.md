@@ -5,7 +5,9 @@ Python mail client by developpers
 [![Python 3](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/python-3-shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
 [![Code Issues](https://www.quantifiedcode.com/api/v1/project/191dce815d614c259c0bf146d56d0a64/badge.svg)](https://www.quantifiedcode.com/app/project/191dce815d614c259c0bf146d56d0a64)
 
-[![CircleCI](https://circleci.com/gh/TristanEduProjet/PyMailDev.svg?style=svg)](https://circleci.com/gh/TristanEduProjet/PyMailDev)
+Unix : [![CircleCI](https://circleci.com/gh/TristanEduProjet/PyMailDev.svg?style=svg)](https://circleci.com/gh/TristanEduProjet/PyMailDev)  
+Windows : [![Build status](https://ci.appveyor.com/api/projects/status/e560s9gsv363whkg?svg=true)](https://ci.appveyor.com/project/TristanEduProjet/pymaildev)
+
 
 ## Sujet
 > L'objectif du projet est de réaliser une application complète en python, sur une thématique de votre choix :
@@ -39,23 +41,23 @@ opencv, ...)
 Un client mail avec une GUI (Qt ou curses).
 
 
-### Usage
+## Usage
 ```python
 #todo
 ```
 
-### Installation
-#### Depuis PyPi :
+## Installation
+### Depuis PyPi :
 ```shell
 pip install sm_lib
 ```
 
-#### En local (copie du Git) :
+### En local (copie du Git) :
 ```shell
 python setup.py install
 ```
 
-#### _Développeurs_
+### _Développeurs_
 Pour packager le programme :
 ```shell
 python setup.py test
