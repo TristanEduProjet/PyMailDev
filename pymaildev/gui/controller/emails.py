@@ -2,7 +2,10 @@ import pickle
 
 
 class Emails(object):
-
+    """
+    Emails controller
+    !!! INCOMPLET ET OBSOLETE !!!
+    """
     def __init__(self):
         self._emails = []
 
@@ -13,9 +16,9 @@ class Emails(object):
         return self._emails.pop(index)
 
     def save(self, filename):
-        output = open(filename, 'wb')
+        output = open(filename, 'w')
         pickle.dump(self._emails, output)
 
     def load(self, filename):
-        pkl_file = open(filename, 'rb')
+        pkl_file = open(filename, 'r')
         self._emails = pickle.load(pkl_file)

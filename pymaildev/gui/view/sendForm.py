@@ -1,32 +1,37 @@
-import pyforms
 import emails
-from   pyforms          import BaseWidget
-from   pyforms.Controls import ControlText
+import pyforms
+from   pyforms import BaseWidget
 from   pyforms.Controls import ControlButton
+from   pyforms.Controls import ControlText
 from   pyforms.Controls import ControlTextArea
-from   PyMailDev.gui.model.email import Email
-from   PyMailDev.core.config.conf import Conf
+from   pymaildev.gui.model.email import Email
 
 
-class SendForm(BaseWidget):
+class SendForm(Email, BaseWidget):
+    """
+    Email reply window
+    """
     def __init__(self):
-        super(SendForm, self).__init__('Send email')
+        Email.__init__(self, '', '', '', '', '', '', '')
+        BaseWidget.__init__(self, 'Send Email')
+
+        BaseWidget.set_margin(self, 10)
 
         # Definition of the forms' fields
-        self._fullName      = ControlText('Full Name', 'NOM PRENOM')
-        self._ffrom         = ControlText('From', 'Adresse1@gmail.com')
-        self._to            = ControlText('To', 'Adresse2@test.fr')
+        self._fullname      = ControlText('Full Name', 'Lefebvre Olivier')
+        self._from          = ControlText('From', 'olvini33@gmail.com')
+        self._to            = ControlText('To', 'olivier.lefebvre@akeonet.com')
         self._cc            = ControlText('Cc')
         self._cci           = ControlText('Cci')
         self._subject       = ControlText('Subject')
         self._message       = ControlTextArea('Message', 'Mail envoyé depuis PyMailESGI')
         self._send          = ControlButton('Send')
         self._clear         = ControlButton('Clear Message')
-        self._logs         = ControlTextArea('Logs')
+        self._logs          = ControlTextArea('Logs')
         self._logs.readonly = True
 
         # Define the organization of the form
-        self.formset = [('_fullName', '_ffrom', '_to'), '_cc', '_cci', '_subject',
+        self.formset = [('_fullname', '_from', '_to'), '_cc', '_cci', '_subject',
                         '_message', ('_send', '_clear'), '_logs']
 
         # Define the button actions
@@ -34,21 +39,37 @@ class SendForm(BaseWidget):
         self._clear.value = self.__clearAction
 
     def __sendAction(self):
-        message = emails.html(html=self._message.value,
-                              subject=self._subject.value,
-                              mail_from=(self._fullName.value, self._ffrom.value))
+        """
+        Send button event
+        :return:
+        """
+        # Retrieve the form' ControlText values to compose the Email to send
+        try:
+            message = emails.html(html=self._message.value, subject=self._subject.value,
+                                  mail_from=(self._fullname.value, self._from.value))
+        except Exception:
+            self._logs.value += "Error: Incorrect entered values.\n"
+            raise
 
-        response = message.send(render={"project_name": "user/project1", "build_id": 121},
-                                to=self._to.value,
-                                smtp={"host": "smtp.gmail.com", "port": 465, "ssl": True,
-                                      "user": "username gmail", "password": "password gmail"})
+        # Send the message with the parameters formerly defined
+        try:
+            response = message.send(to=self._to.value,
+                                    smtp={"host": "smtp.gmail.com", "port": 465, "ssl": True,
+                                          "user": "A CHANGER", "password": "A CHANGER"})
+        except Exception:
+            self._logs.value += "Error: Incorrect SMTP configuration.\n"
+            raise
 
+        # Assert the email has been correctly sent and received by the recipient
         assert response.status_code == 250
-        self._logs.value += "Email sent to " + self._to.value + "\n"
+
+        if response.status_code == 250:
+            self._logs.value += "Email sent to " + self._to.value + ".\n"
+            # TODO: Stocker l'email envoyé dans une autre liste graphique ?
 
     def __clearAction(self):
+        """
+        Clear button event. Reset the textarea '_message' value.
+        :return:
+        """
         self._message.value = ''
-
-# Execute the application
-if __name__ == "__main__":
-    pyforms.start_app(SendForm, geometry=(810, 540, 800, 400))

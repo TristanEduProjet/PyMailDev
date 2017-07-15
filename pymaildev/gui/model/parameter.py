@@ -1,16 +1,13 @@
-class Conf:
-    host = None
-    port = None
-    ssl = None
-    user = None
-    password = None
-
-    def __init__(self):
-        self._host = Conf.host
-        self._port = Conf.port
-        self._ssl = Conf.ssl
-        self._user = Conf.user
-        self._password = Conf.password
+class Parameter(object):
+    """
+    Parameter model
+    """
+    def __init__(self, host, port, ssl, user, password):
+        self._host = host
+        self._port = port
+        self._ssl = ssl
+        self._user = user
+        self._password = password
 
     def _get_host(self):
         return self._host
@@ -47,6 +44,3 @@ class Conf:
     ssl = property(_get_ssl, _set_ssl)
     user = property(_get_user, _set_user)
     password = property(_get_password, _set_password)
-
-    def _get_infos(self):
-        """Parcourir un fichier où seront stockées les informations de cette classe"""

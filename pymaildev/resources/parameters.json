@@ -1,0 +1,7 @@
+{
+    "host": "smtp.gmail.com",
+    "password": "T'as vraiment cru que j'allais mettre mon mdp ici ?",
+    "port": "465",
+    "ssl": "True",
+    "user": "Ainsi que mon username ?!"
+}
