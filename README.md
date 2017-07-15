@@ -5,6 +5,7 @@ Python mail client by developpers
 [![Python 3](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/python-3-shield.svg)](https://pyup.io/repos/github/TristanEduProjet/PyMailDev/)
 [![Code Issues](https://www.quantifiedcode.com/api/v1/project/191dce815d614c259c0bf146d56d0a64/badge.svg)](https://www.quantifiedcode.com/app/project/191dce815d614c259c0bf146d56d0a64)
 
+[![CircleCI](https://circleci.com/gh/TristanEduProjet/PyMailDev.svg?style=svg)](https://circleci.com/gh/TristanEduProjet/PyMailDev)
 
 ## Sujet
 > L'objectif du projet est de réaliser une application complète en python, sur une thématique de votre choix :
