@@ -1,0 +1,103 @@
+pull_requests:
+  do_not_increment_build_number: true
+
+branches:
+  except:
+    - gh-pages
+
+environment:
+  matrix:
+  - _Python: C:\Python33
+  - _Python: C:\Python33-x64
+  - _Python: C:\Python34
+  - _Python: C:\Python34-x64
+  - _Python: C:\Python35
+  - _Python: C:\Python35-x64
+  - _Python: C:\Python36
+  - _Python: C:\Python36-x64
+  #fast_finish: true
+
+init:
+  - git config --global core.autocrlf input
+  - set PATH=%_Python%;%_Python%\Scripts;%PATH%
+
+cache: '%USERPROFILE%\AppData\Local\pip\cache'
+
+install:
+  - git --version
+  - python --version
+  #- pip install --disable-pip-version-check --user --upgrade pip
+  - pip --version
+  - pip install wheel twine setuptools nose coverage
+  #- cmd: rem python setup.py develop
+  - pip install -r requirements.txt
+
+before_build:
+  - python setup.py check
+
+build_script:
+  - python setup.py build
+
+after_build:
+  - python setup.py sdist
+  - python setup.py bdist
+  - python setup.py bdist_dumb
+  - python setup.py bdist_egg
+  - python setup.py bdist_wheel
+  - python setup.py bdist_wininst
+  - python setup.py bdist_msi
+  - dir dist
+
+#before_test:
+#  - cmd: pip install -e .[test]
+
+test_script:
+  - python -m unittest
+  #- cmd: rem python setup.py test
+  #- python setup.py nosetests --with-xunit
+  # - python setup.py install
+
+#after_test:
+#  - ps: >-
+#      $wc = New-Object 'System.Net.WebClient'
+#      $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
+
+artifacts:
+  - path: dist\*
+    name: dists
+
+before_deploy:
+  - cmd: >-
+      python -c "import pymaildev; print(pymaildev.__version__, end='')" > tmpVersion
+      set /p pyversion= < tmpVersion
+      del tmpVersion
+
+deploy:
+  - provider: GitHub
+    description: Automatic build
+    auth_token:
+      secure: chhFHtGs1kPKY78OkKk63o/68kHrJHkMe4W9uaQLmJXl8WjK4sKNIfgH1LXOtvYg
+    artifact: dists
+    draft: true
+    force_update: false
+    on:
+      branch: master
+      #appveyor_repo_tag: true
+
+  - provider: GitHub
+    #release: $(pyversion)-develop
+    description: Automatic draft build
+    auth_token:
+      secure: chhFHtGs1kPKY78OkKk63o/68kHrJHkMe4W9uaQLmJXl8WjK4sKNIfgH1LXOtvYg
+    artifact: dists
+    draft: true
+    prerelease: true
+    force_update: true
+    on:
+      branch: develop
+
+#after_deploy:
+
+#on_success:
+#on_failure:
+#on_finish:
