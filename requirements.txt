@@ -4,6 +4,8 @@
 
 wheel
 pypandoc
+pdb
+ipdb
 
 pylint
 pep8

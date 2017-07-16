@@ -39,6 +39,7 @@ opencv, ...)
 
 ### Sujet choisi
 Un client mail avec une GUI (Qt ou curses).
+> Tkinter, PyQt/PySide, WxPython, PyGTK, PyGame
 
 
 ## Usage

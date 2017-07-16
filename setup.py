@@ -66,8 +66,11 @@ setup(name = pymaildev.__fullname__,
       download_url = 'https://github.com/TristanEduProjet/PyMailDev/releases',
       description = 'Python mail client by developpers',
       long_description = long_description,
-      platforms = 'ALL' #any
-      #entry_points = {'console_scripts': ['pymail = pymaildev.py:func']},
+      platforms = 'ALL', #any
+      entry_points = {
+          #'console_scripts': ['pymail = pymaildev.__main__:main'],
+          'gui_scripts': ['pymail = pymaildev.__main__:main']
+      },
       #install_requires = ['lib>=1.0.0', 'lib>=1.2.0,<=1.4.3']
       #dependency_links=['http://github.com/user/repo/tarball/master#egg=package-1.0']
       )
