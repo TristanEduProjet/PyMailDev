@@ -31,7 +31,7 @@ install:
   - pip install twine setuptools nose coverage
   #- cmd: rem python setup.py develop
   - pip install -r requirements.txt
-  - pip install flake8_junit
+  - pip install flake8-junit-report
   - pylint --version
   - pep8 --version
   - pep257 --version
@@ -59,11 +59,10 @@ after_build:
 #  - cmd: pip install -e .[test]
 
 test_script:
-  - flake8 ./
-  - pep8 ./
-  - pycodestyle ./
-  - pydocstyle ./
-  - python setup.py test
+  - mkdir reports
+  - python setup.py pylint flake8
+  #- pydocstyle ./
+  - python setup.py test_xml
   #- python setup.py nosetests --with-xunit
   #- python setup.py install
 

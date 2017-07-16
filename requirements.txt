@@ -1,13 +1,4 @@
 --index-url https://pypi.python.org/simple/
 
 -e .
-
-wheel
-pypandoc
-pdb
-ipdb
-
-tox
-nose
-pytest
-pytest-cov
+-e .[lint]

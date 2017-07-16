@@ -1,6 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import unittest
 import doctest
 import xmlrunner
+
+from . import *
 
 #def additional_tests():
     #from . import *
@@ -12,9 +17,17 @@ import xmlrunner
 #def suite():
     #return additional_tests()
 
-if __name__ == "__main__":
-    #with open('/path/to/results.xml', 'wb') as output: ...(output=output)
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'),
-                  failfast=False, buffer=False, catchbreak=False)
+def testall():
+    unittest.main(module=None, failfast=False, buffer=False, catchbreak=False)
     #unittest.TextTestRunner("""verbosity=2""").run(suite())
+
+def testall_xml():
+    #with open('/path/to/results.xml', 'wb') as output: ...(output=output)
+    #unittest.main(module=None,
+    #              testRunner=,
+    #              failfast=False, buffer=False, catchbreak=False)
     #xmlrunner.XMLTestRunner().run(doctest.DocTestSuite())
+    xmlrunner.XMLTestRunner(output='test-reports').run(unittest.TestLoader().discover('.'))
+
+if __name__ == "__main__":
+    testall_xml()

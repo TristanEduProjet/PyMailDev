@@ -25,7 +25,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-{{ .Branch }}-
           - v1-dependencies-
@@ -36,7 +36,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            pip install flake8_junit
+            pip install flake8-junit-report
           #pip install nose tox pytest flake8-html
 
       - persist_to_workspace:
@@ -48,7 +48,7 @@ jobs:
           paths:
             - ./venv
             - ~/.cache/pip
-          key: v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          key: v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
 
       - run:
           name: package bdist
@@ -70,7 +70,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-{{ .Branch }}-
           - v1-dependencies-
@@ -81,12 +81,10 @@ jobs:
           name: check lint
           command: |
             . venv/bin/activate
-            pylint --report=y pymaildev
-            flake8 ./
+            mkdir reports
+            python3 setup.py pylint flake8
             flake8_junit reports/flake8.txt test-reports/flake8_junit.xml
-            pep8 ./
-            pycodestyle ./
-            pydocstyle ./
+          #pydocstyle ./
       #- store_test_results:
       - store_artifacts:
           path: reports
@@ -100,7 +98,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-{{ .Branch }}-
           - v1-dependencies-
@@ -111,7 +109,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python3 setup.py test
+            python3 setup.py test_xml
       - store_artifacts:
           path: test-reports
       - store_test_results:
@@ -122,7 +120,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-{{ .Branch }}-
           - v1-dependencies-
@@ -140,7 +138,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-{{ .Branch }}-
           - v1-dependencies-
@@ -153,7 +151,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          key: v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}-{{ checksum "setup.cfg" }}
       - deploy:
           command: |
             python3 setup.py bdist_wheel

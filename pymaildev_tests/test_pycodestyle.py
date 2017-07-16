@@ -1,15 +1,16 @@
 #!python
+# -*- coding: utf-8 -*-
 
 import unittest
 import pycodestyle
 
 class CodeStyleTest(unittest.TestCase):
     def getStyle(self):
-        return pycodestyle.StyleGuide(parse_argv=True, config_file='./../setup.cfg')
-        #, quiet=True, config_file='/path/to/tox.ini', ignore=['E501']
+        return pycodestyle.StyleGuide(quiet=True, parse_argv=True, config_file='./../setup.cfg')
+        #, config_file='/path/to/tox.ini', ignore=['E501']
 
     def test_conformance(self):
-        """Test that we conform to PEP-8."""
+        """Test that we conform to PEP-8 (pyCodeStyle)."""
         style = self.getStyle()
         result = style.check_files("""['file1.py', 'file2.py']""")
         self.assertEqual(result.total_errors, 0, "Found code style errors (and warnings).")
