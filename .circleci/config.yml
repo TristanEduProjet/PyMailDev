@@ -111,10 +111,10 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python -m unittest
-          #python3 setup.py test
-      #- store_test_results:
+            python3 setup.py test
       - store_artifacts:
+          path: test-reports
+      - store_test_results:
           path: test-reports
 
   test-install:

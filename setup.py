@@ -66,11 +66,27 @@ setup(name = pymaildev.__fullname__,
       download_url = 'https://github.com/TristanEduProjet/PyMailDev/releases',
       description = 'Python mail client by developpers',
       long_description = long_description,
-      platforms = 'ALL', #any
+      platforms = 'ALL', #'any' #['any']
       entry_points = {
           #'console_scripts': ['pymail = pymaildev.__main__:main'],
           'gui_scripts': ['pymail = pymaildev.__main__:main']
       },
       #install_requires = ['lib>=1.0.0', 'lib>=1.2.0,<=1.4.3']
       #dependency_links=['http://github.com/user/repo/tarball/master#egg=package-1.0']
+      #extra_requires={'':['']}
+      test_suite='pymaildev_tests', #pymail_tests._MainTest.test_all
+      tests_require = ['unittest-xml-reporting',
+                       #differents lint
+                       'pylint',
+                       'pep8', 'pep257'
+                       'pyflakes', 'hacking'
+                       'pycodestyle', 'pydocstyle',
+                       #Flake8 & plugins
+                       'flake8',
+                       'pep8-naming',
+                       'flake8_docstrings', 'flake8-future', 'flake8-todo',
+                       'flake8-pytest', 'flake8-commas', 'flake8-author',
+                       'flake8-debugger', 'flake8-module-imports', 'flake8-print',
+                       'flake8-coding', 'flake8-deprecated', 'flake8-string-format',
+                       'flake8-blind-except']
       )

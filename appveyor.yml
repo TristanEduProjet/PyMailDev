@@ -63,10 +63,9 @@ test_script:
   - pep8 ./
   - pycodestyle ./
   - pydocstyle ./
-  - python -m unittest
-  #- cmd: rem python setup.py test
+  - python setup.py test
   #- python setup.py nosetests --with-xunit
-  # - python setup.py install
+  #- python setup.py install
 
 after_test:
   - flake8_junit reports\flake8.txt test-reports\flake8_junit.xml
