@@ -28,9 +28,16 @@ install:
   - python --version
   #- pip install --disable-pip-version-check --user --upgrade pip
   - pip --version
-  - pip install wheel twine setuptools nose coverage
+  - pip install twine setuptools nose coverage
   #- cmd: rem python setup.py develop
   - pip install -r requirements.txt
+  - pip install flake8_junit
+  - pylint --version
+  - pep8 --version
+  - pep257 --version
+  - flake8 --version
+  - pycodestyle --version
+  - pydocstyle --version
 
 before_build:
   - python setup.py check
@@ -52,19 +59,26 @@ after_build:
 #  - cmd: pip install -e .[test]
 
 test_script:
+  - flake8 ./
+  - pep8 ./
+  - pycodestyle ./
+  - pydocstyle ./
   - python -m unittest
   #- cmd: rem python setup.py test
   #- python setup.py nosetests --with-xunit
   # - python setup.py install
 
-#after_test:
-#  - ps: >-
-#      $wc = New-Object 'System.Net.WebClient'
-#      $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
+after_test:
+  - flake8_junit reports\flake8.txt test-reports\flake8_junit.xml
+  - ps: >-
+      $wc = New-Object 'System.Net.WebClient'
+      $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test-reports\flake8_junit.xml))
+  #$wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
 
 artifacts:
   - path: dist\*
     name: dists
+  - path: reports
 
 before_deploy:
   - cmd: >-

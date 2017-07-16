@@ -58,6 +58,11 @@ python setup.py install
 ```
 
 ### _Développeurs_
+Pour installer les dépendances de devel:
+```shell
+python install -r requirements.txt
+```
+
 Pour packager le programme :
 ```shell
 python setup.py test

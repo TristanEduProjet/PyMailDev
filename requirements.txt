@@ -1,3 +1,30 @@
 --index-url https://pypi.python.org/simple/
 
 -e .
+
+wheel
+pypandoc
+
+pylint
+pep8
+pep257
+pyflakes
+hacking
+pycodestyle
+pydocstyle
+
+flake8
+pep8-naming
+flake8_docstrings
+flake8-future
+flake8-todo
+flake8-pytest
+flake8-commas
+flake8-author
+flake8-debugger
+flake8-module-imports
+flake8-print
+flake8-coding
+flake8-deprecated
+flake8-string-format
+flake8-blind-except

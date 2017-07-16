@@ -7,7 +7,7 @@ defaults: &defaults
     # specify the version you desire here
     # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
     - image: circleci/python:3.6.1
-    
+
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images documented at https://circleci.com/docs/2.0/circleci-images/
     # - image: circleci/postgres:9.4
@@ -36,7 +36,8 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            pip install wheel
+            pip install flake8_junit
+          #pip install nose tox pytest flake8-html
 
       - persist_to_workspace:
           root: ~/
@@ -50,7 +51,7 @@ jobs:
           key: v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
 
       - run:
-          name: install dependencies
+          name: package bdist
           command: |
             . venv/bin/activate
             python3 setup.py check
@@ -63,6 +64,36 @@ jobs:
       - store_artifacts:
           path: dist
           destination: dist
+
+  lint:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ .Branch }}-{{ checksum "requirements.txt" }}-{{ checksum "setup.py" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-{{ .Branch }}-
+          - v1-dependencies-
+      - attach_workspace:
+          at: ~/
+      # run tests!
+      - run:
+          name: check lint
+          command: |
+            . venv/bin/activate
+            pylint --report=y pymaildev
+            flake8 ./
+            flake8_junit reports/flake8.txt test-reports/flake8_junit.xml
+            pep8 ./
+            pycodestyle ./
+            pydocstyle ./
+      #- store_test_results:
+      - store_artifacts:
+          path: reports
+      - store_artifacts:
+          path: test-reports
+      - store_test_results:
+          path: test-reports
 
   tests:
     <<: *defaults
@@ -133,12 +164,15 @@ workflows:
   build_and_test:
     jobs:
       - build
+      - lint:
+          requires:
+            - build
       - tests:
           requires:
-            - build
+            - lint
       - test-install:
           requires:
-            - build
+            - lint
           filters:
             branches:
               only:
