@@ -1,7 +1,9 @@
 #!/bin/python
 # -*-coding:utf-8 -*
 
-import core
-import gui
+"""pymail.py"""
 
-#__all__ = ["", ""]
+# import core
+# import gui
+
+# __all__ = ["", ""]

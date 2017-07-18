@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""Part of setup.py"""
+
 import distutils.log as log
 import setuptools
 import subprocess
@@ -17,6 +19,7 @@ except ImportError:
     except ImportError:
         from distutils.cmd import Command
         from distutils.command.test import test
+
 
 class PylintCommand(Command):
     """A custom command to run Pylint on all Python source files."""
@@ -43,39 +46,50 @@ class PylintCommand(Command):
 
     def run(self):
         """Run command."""
-        command = ['pylint'] #/usr/bin/pylint
+        command = ['pylint']  # /usr/bin/pylint
         if self.pylint_rcfile:
             command.append('--rcfile=%s' % self.pylint_rcfile)
-        #command.append(os.getcwd())
+        # command.append(os.getcwd())
         command.append("pymaildev")
         self.announce('Running command: %s' % str(command), level=log.INFO)
-        #subprocess.check_call(command)
+        # subprocess.check_call(command)
         subprocess.call(command)
 
 
-#
 class TestXmlCommand(test):
     """A custom command to run Pylint on all Python source files."""
+
     description = 'run unit tests with xml runner after in-place build'
-    #user_options = []
+    # user_options = []
+
     def run_tests(self):
+        """..."""
         from pymaildev_tests._MainTest import testall_xml
         testall_xml()
+
     def run(self):
-        #import sys, subprocess
-        #raise SystemExit(subprocess.call([sys.executable, '-m', 'xmlrunner', 'discover']))
-        #self.run_command('pylint')
+        """..."""
+        # import sys, subprocess
+        # raise SystemExit(subprocess.call([sys.executable, '-m', 'xmlrunner', 'discover']))
+        # self.run_command('pylint')
         test.run(self)
 
 
 class LintCommand(Command):
     """Custom build command."""
+
     description = 'shortcut running pylint and flake8'
     user_options = []
+
     def initialize_options(self):
+        """..."""
         pass
+
     def finalize_options(self):
+        """..."""
         pass
+
     def run(self):
+        """..."""
         self.run_command('pylint')
         self.run_command('flake8')
