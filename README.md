@@ -50,8 +50,9 @@ Un client mail avec une GUI (Qt ou curses).
 ## Installation
 ### Depuis PyPi :
 ```shell
-pip install sm_lib
+pip install PyMailDev
 ```
+**>> Ne fonctionne pas pour l'instant.**
 
 ### En local (copie du Git) :
 ```shell
@@ -64,8 +65,18 @@ Pour installer les dépendances de devel:
 python install -r requirements.txt
 ```
 
-Pour packager le programme :
+Pour vérifier la conformité du code (PEP8 entre autre) :
+```shell
+python setup.py pylint flake8
+```
+ou simplement `pep8 ./` mais retourne pas toutes les erreurs.
+
+Pour tester le programme (conformité & tests unitaires): 
 ```shell
 python setup.py test
+```
+
+Pour packager le programme :
+```shell
 python setup.py bdist_wheel
 ```
