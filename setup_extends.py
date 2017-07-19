@@ -38,20 +38,20 @@ class PylintCommand(Command):
     def finalize_options(self):
         """Post-process options."""
         if self.pylint_rcfile:
-            assert os.path.exists(self.pylint_rcfile), ('Pylint config file %s does not exist.' % self.pylint_rcfile)
+            assert os.path.exists(self.pylint_rcfile), ('Pylint config file {0} does not exist.'.format(self.pylint_rcfile))
         else:
             if os.path.exists('pylintrc'):
                 self.pylint_rcfile = 'pylintrc'
-                print('Pylint default config file %s found.' % self.pylint_rcfile)
+                print('Pylint default config file {0} found.'.format(self.pylint_rcfile))
 
     def run(self):
         """Run command."""
         command = ['pylint']  # /usr/bin/pylint
         if self.pylint_rcfile:
-            command.append('--rcfile=%s' % self.pylint_rcfile)
+            command.append('--rcfile={0}'.format(self.pylint_rcfile))
         # command.append(os.getcwd())
         command.append("pymaildev")
-        self.announce('Running command: %s' % str(command), level=log.INFO)
+        self.announce('Running command: {0}'.format(str(command), level=log.INFO))
         # subprocess.check_call(command)
         subprocess.call(command)
 

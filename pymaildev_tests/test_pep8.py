@@ -10,7 +10,8 @@ import pep8
 class PEP8Test(unittest.TestCase):
     """..."""
 
-    def get_style(self):
+    @staticmethod
+    def get_style():
         """..."""
         return pep8.StyleGuide(quiet=True, parse_argv=True, config_file='./../setup.cfg')
         # config_file=True

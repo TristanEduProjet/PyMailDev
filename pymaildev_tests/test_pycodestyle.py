@@ -10,7 +10,8 @@ import pycodestyle
 class CodeStyleTest(unittest.TestCase):
     """..."""
 
-    def get_style(self):
+    @staticmethod
+    def get_style():
         """..."""
         return pycodestyle.StyleGuide(quiet=True, parse_argv=True, config_file='./../setup.cfg')
         # , config_file='/path/to/tox.ini', ignore=['E501']
