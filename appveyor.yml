@@ -9,8 +9,14 @@ environment:
   matrix:
   - _Python: C:\Python33
   - _Python: C:\Python33-x64
+    DISTUTILS_USE_SDK: "1"
+    MSSdk: "1"
+    TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
   - _Python: C:\Python34
   - _Python: C:\Python34-x64
+    DISTUTILS_USE_SDK: "1"
+    MSSdk: "1"
+    TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
   - _Python: C:\Python35
   - _Python: C:\Python35-x64
   - _Python: C:\Python36
@@ -24,13 +30,23 @@ init:
 cache: '%USERPROFILE%\AppData\Local\pip\cache'
 
 install:
+  # https://packaging.python.org/guides/supporting-windows-using-appveyor/
+  - cmd: IF "%DISTUTILS_USE_SDK%"=="1" "C:\Program Files\Microsoft SDKs\Windows\v7.1\Setup\WindowsSdkVer.exe" -q -version:v7.1
+  - cmd: IF "%DISTUTILS_USE_SDK%"=="1" CALL "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64 /release
   - git --version
   - python --version
   #- pip install --disable-pip-version-check --user --upgrade pip
   - pip --version
-  - pip install wheel twine setuptools nose coverage
+  - pip install twine setuptools nose coverage
   #- cmd: rem python setup.py develop
   - pip install -r requirements.txt
+  - pip install flake8-junit-report
+  - pylint --version
+  - pep8 --version
+  - pep257 --version
+  - flake8 --version
+  - pycodestyle --version
+  - pydocstyle --version
 
 before_build:
   - python setup.py check
@@ -52,19 +68,25 @@ after_build:
 #  - cmd: pip install -e .[test]
 
 test_script:
-  - python -m unittest
-  #- cmd: rem python setup.py test
+  - mkdir reports test-reports
+  - python setup.py pylint flake8
+  #- pydocstyle ./
+  - python setup.py test_xml
   #- python setup.py nosetests --with-xunit
-  # - python setup.py install
+  #- python setup.py install
 
-#after_test:
-#  - ps: >-
-#      $wc = New-Object 'System.Net.WebClient'
-#      $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
+after_test:
+  - flake8_junit reports/flake8.txt test-reports/flake8_junit.xml
+  - ps: $wc = New-Object 'System.Net.WebClient'
+  #- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\test-reports\flake8_junit.xml))
+  - ps: foreach($f in $(Get-ChildItem "test-reports")) {$wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", $f.FullName)}
+  #- ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\nosetests.xml))
 
 artifacts:
   - path: dist\*
     name: dists
+  - path: reports
+  - path: test-reports
 
 before_deploy:
   - cmd: >-

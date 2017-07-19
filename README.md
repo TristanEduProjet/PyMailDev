@@ -39,6 +39,7 @@ opencv, ...)
 
 ### Sujet choisi
 Un client mail avec une GUI (Qt ou curses).
+> Tkinter, PyQt/PySide, WxPython, PyGTK, PyGame
 
 
 ## Usage
@@ -49,8 +50,9 @@ Un client mail avec une GUI (Qt ou curses).
 ## Installation
 ### Depuis PyPi :
 ```shell
-pip install sm_lib
+pip install PyMailDev
 ```
+**>> Ne fonctionne pas pour l'instant.**
 
 ### En local (copie du Git) :
 ```shell
@@ -58,8 +60,23 @@ python setup.py install
 ```
 
 ### _Développeurs_
-Pour packager le programme :
+Pour installer les dépendances de devel:
+```shell
+python install -r requirements.txt
+```
+
+Pour vérifier la conformité du code (PEP8 entre autre) :
+```shell
+python setup.py pylint flake8
+```
+ou simplement `pep8 ./` mais retourne pas toutes les erreurs.
+
+Pour tester le programme (conformité & tests unitaires): 
 ```shell
 python setup.py test
+```
+
+Pour packager le programme :
+```shell
 python setup.py bdist_wheel
 ```
