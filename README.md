@@ -42,6 +42,18 @@ Un client mail avec une GUI (Qt ou curses).
 > Tkinter, PyQt/PySide, WxPython, PyGTK, PyGame
 
 
+## Dépendances
+Dépendances embarquées dans le **setup** (ou *requirements*) :
+  - pyforms
+  - ...
+
+Dépendances non embarqués (à installer manuellement) :
+  - [Python 3](https://www.python.org/downloads/)
+  - [Qt4](https://wiki.qt.io/Main) (section *Quick Access* > Qt 4.x.x)
+  - [PyQt4](https://riverbankcomputing.com/software/pyqt/download) ([instructions](http://pyqt.sourceforge.net/Docs/PyQt4/installation.html))
+  - [pysettings](https://github.com/UmSenhorQualquer/pysettings.git)
+
+
 ## Usage
 ```python
 #todo

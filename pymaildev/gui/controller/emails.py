@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import pickle
 
 
@@ -6,6 +9,7 @@ class Emails(object):
     Emails controller
     !!! INCOMPLET ET OBSOLETE !!!
     """
+
     def __init__(self):
         self._emails = []
 

@@ -1,18 +1,19 @@
-import pyforms
-from   pyforms import BaseWidget
-from   pyforms.Controls import ControlButton
-from   pyforms.Controls import ControlList
-from   pyforms.Controls import ControlEmptyWidget
-from   pymaildev.gui.model.email import Email
-from   pymaildev.gui.controller.emails import Emails
-from   pymaildev.gui.view.parametersForm import ParametersForm
-from   pymaildev.gui.view.sendForm import SendForm
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from pyforms import BaseWidget
+from pyforms.Controls import ControlButton
+from pyforms.Controls import ControlList
+from pyforms.Controls import ControlEmptyWidget
+from pymaildev.gui.model.email import Email
+from pymaildev.gui.controller.emails import Emails
+from pymaildev.gui.view.parametersForm import ParametersForm
+from pymaildev.gui.view.sendForm import SendForm
 
 
 class ListForm(BaseWidget):
-    """
-    Listed emails' window
-    """
+    """Listed emails' window"""
+
     emails = []
 
     def __init__(self):
@@ -81,8 +82,3 @@ class ListForm(BaseWidget):
         """
         """Charger tous les objets Email, et les insérer dans la ControlList"""
         # Note : Peut-être utiliser la fonction 'set_value(column, row, value)' pour chaque Email sur lesquels on boucle
-
-
-# Execute the application
-if __name__ == "__main__":
-    pyforms.start_app(ListForm, geometry=(810, 540, 800, 400))

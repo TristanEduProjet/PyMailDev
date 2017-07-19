@@ -1,16 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import emails
-import pyforms
-from   pyforms import BaseWidget
-from   pyforms.Controls import ControlButton
-from   pyforms.Controls import ControlText
-from   pyforms.Controls import ControlTextArea
-from   pymaildev.gui.model.email import Email
+from pyforms import BaseWidget
+from pyforms.Controls import ControlButton
+from pyforms.Controls import ControlText
+from pyforms.Controls import ControlTextArea
+from pymaildev.gui.model.email import Email
 
 
 class SendForm(Email, BaseWidget):
-    """
-    Email reply window
-    """
+    """Email reply window"""
+
     def __init__(self):
         Email.__init__(self, '', '', '', '', '', '', '')
         BaseWidget.__init__(self, 'Send Email')

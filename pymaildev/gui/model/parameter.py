@@ -1,7 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 class Parameter(object):
-    """
-    Parameter model
-    """
+    """Parameter model"""
+
     def __init__(self, host, port, ssl, user, password):
         self._host = host
         self._port = port

@@ -4,5 +4,11 @@
 """
 Partie graphique de l'application
 
-Lib utilisée: ______
+Lib utilisée: pyform
 """
+
+from model import *
+from view import *
+from controller import *
+
+__all__ = ['model', 'view', 'controller']

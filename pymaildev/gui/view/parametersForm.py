@@ -1,18 +1,19 @@
-import pyforms
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import json
 import io
 import os
-from   pyforms import BaseWidget
-from   pyforms.Controls import ControlText
-from   pyforms.Controls import ControlButton
-from   pymaildev.gui.model.parameter import Parameter
-from   pymaildev.core.utils.encryption import Encryption
+from pyforms import BaseWidget
+from pyforms.Controls import ControlText
+from pyforms.Controls import ControlButton
+from pymaildev.gui.model.parameter import Parameter
+from pymaildev.core.utils.encryption import Encryption
 
 
 class ParametersForm(Parameter, BaseWidget):
-    """
-    Parameters window
-    """
+    """Parameters window"""
+
     dict_params = {'host': [], 'port': [], 'ssl': [], 'user': [], 'password': []}
     """json_path = os.path.abspath(__file__)
     json_path = json_path[:-8]
