@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>mail.qml</file>
+        <file>MailForm.ui.qml</file>
+        <file>accountParams.qml</file>
+        <file>AccountParamsForm.ui.qml</file>
+    </qresource>
+</RCC>

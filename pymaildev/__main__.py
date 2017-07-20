@@ -4,8 +4,10 @@
 """Point d'entrée si appelé comme module, ou comme programme."""
 
 import sys
-import pyforms
-from gui import ListForm
+import os
+# from . import gui
+from .gui import start_qml
+from .gui import MainController
 # from __init__ import *
 # from . import *
 
@@ -14,8 +16,8 @@ def main(args=None):
     """Main routine."""
     if args is None:
         args = sys.argv[1:]
-    pyforms.start_app(ListForm, geometry=(810, 540, 800, 400))
+    start_qml(args, MainController)
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv)
