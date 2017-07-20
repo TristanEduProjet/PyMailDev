@@ -20,7 +20,6 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("Exit")
                 onTriggered: Qt.quit()
-                enabled: false
             }
         }
     }

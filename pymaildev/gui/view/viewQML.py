@@ -13,11 +13,14 @@ from PyQt5.QtCore import QUrl
 
 __all__ = ['start_qml']
 
-app = None  # http://pyqt.sourceforge.net/Docs/PyQt5/gotchas.html#crashes-on-exit
+apps = []  # minimise the chances of crashe
+# http://pyqt.sourceforge.net/Docs/PyQt5/gotchas.html#crashes-on-exit
 
-def start_qml(args, QmlController):
+def start_qml_(args, QmlController):
     """Démarre l'application en graphique"""
+    global apps
     app=QGuiApplication(args)
+    apps.append(app)
     # qml=QUrl()
     # assert qml.isValid()
     # print(qml.path())
@@ -28,9 +31,11 @@ def start_qml(args, QmlController):
     # sys.exit(app.exec())
     sys.exit(app.exec_())
 
-def start_qml_(args, QmlController):
+def start_qml(args, QmlController):
     """Démarre l'application en graphique"""
+    global apps
     app = QApplication(args)
+    apps.append(app)
     engine = QQmlApplicationEngine(QmlController.__qml__)
     engine.quit.connect(app.quit)
     engine.warnings.connect(warns)
