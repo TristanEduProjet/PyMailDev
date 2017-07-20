@@ -1,10 +1,13 @@
 #!/bin/python
 # -*-coding:utf-8 -*
 
-"""Point d'entrée si appelé comme module, ou comme programme."""
+"""
+Main PyMailDev
+
+Point d'entrée si appelé comme module, ou comme programme.
+"""
 
 import sys
-import os
 # from . import gui
 from .gui import start_qml
 from .gui import MainController

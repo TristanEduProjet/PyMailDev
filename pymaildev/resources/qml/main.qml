@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.2
 
 ApplicationWindow {
-    visible: true
+    //visible: true
     width: 1200
     height: 800
     title: qsTr("PyMailDev")
@@ -19,7 +19,8 @@ ApplicationWindow {
             MenuSeparator {}
             MenuItem {
                 text: qsTr("Exit")
-                onTriggered: console.log("exit")
+                onTriggered: Qt.quit()
+                enabled: false
             }
         }
     }

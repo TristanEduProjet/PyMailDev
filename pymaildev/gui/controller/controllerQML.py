@@ -14,3 +14,4 @@ class ControllerQML(QObject):
         self.win = parent
         self.ctx = context
         self.ctx.setContextProperty("pyController", self)
+        self.win.show()

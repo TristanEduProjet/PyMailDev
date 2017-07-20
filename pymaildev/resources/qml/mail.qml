@@ -17,11 +17,11 @@ ApplicationWindow {
             }
         }
     }
-    statusBar: StatusBar {
-        Label { text: "..." }
-    }
     MailForm {
         anchors.margins: 6
         anchors.fill: parent
+    }
+    statusBar: StatusBar {
+        Label { text: "..." }
     }
 }

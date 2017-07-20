@@ -45,6 +45,7 @@ Un client mail avec une GUI (Qt ou curses).
 ## Dépendances
 Dépendances embarquées dans le **setup** (ou *requirements*) :
   - [PyQt5](https://www.riverbankcomputing.com/software/pyqt)
+    avec Qt5
   - ...
 
 Dépendances non embarqués (à installer manuellement) :
@@ -54,8 +55,8 @@ Dépendances non embarqués (à installer manuellement) :
 
 
 ## Usage
-```python
-#todo
+```shell
+python -m pymaildev
 ```
 
 ## Installation
@@ -75,6 +76,7 @@ Pour installer les dépendances de devel:
 ```shell
 python install -r requirements.txt
 ```
+Vous aurez aussi besoin de [Qt Creator](https://www.qt.io/download-open-source/#section-9) pour la partie *Qt Quick* (QML).
 
 Pour vérifier la conformité du code (PEP8 entre autre) :
 ```shell
