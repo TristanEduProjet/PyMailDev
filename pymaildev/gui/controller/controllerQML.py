@@ -3,7 +3,10 @@
 
 """Abstraction d'un controlleur QML"""
 
+import os
+import pymaildev
 from PyQt5.QtCore import QObject
+from PyQt5.QtGui import QIcon
 
 class ControllerQML(QObject):
     """Abstract QML controller"""
@@ -13,5 +16,6 @@ class ControllerQML(QObject):
         super().__init__(parent)
         self.win = parent
         self.ctx = context
+        # self.win.setIcon(QIcon(os.path.join(pymaildev.__resources__, "ico", "Wwalczyszyn-Mail.ico")))
         self.ctx.setContextProperty("pyController", self)
         self.win.show()
