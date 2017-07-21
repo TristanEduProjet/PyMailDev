@@ -4,7 +4,11 @@
         <file>MainForm.ui.qml</file>
         <file>mail.qml</file>
         <file>MailForm.ui.qml</file>
-        <file>accountParams.qml</file>
+        <file>AccountParams.qml</file>
         <file>AccountParamsForm.ui.qml</file>
+    </qresource>
+    <qresource prefix="/part">
+        <file>MailField.qml</file>
+        <file>PasswordField.qml</file>
     </qresource>
 </RCC>

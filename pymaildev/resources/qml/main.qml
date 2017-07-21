@@ -14,8 +14,9 @@ ApplicationWindow {
             title: qsTr("&File")
             MenuItem {
                 text: qsTr("Options")
-                onTriggered: console.log("options")
+                onTriggered: dialogAccount.open()
             }
+            AccountParams { id: dialogAccount }
             MenuSeparator {}
             MenuItem {
                 text: qsTr("Exit")

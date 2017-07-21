@@ -2,16 +2,38 @@ import QtQuick 2.4
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles.Desktop 1.0
 import QtQuick.Layouts 1.3
-import QtPositioning 5.9
 
 ColumnLayout {
     spacing: 5
 
+    property alias btnSave: btnSave
+    property alias btnCancel: btnCancel
+    property alias btnAutoDetect: autoDetect
+    property bool newAccount: true
+
+    property alias name: textName
+    property alias mail: textMail
+    property alias user: textUser
+    property alias pwd: textPwd
+
+    property alias receiveType: comboxReceiveType
+    property alias receiveSSL: comboxReceiveSSL
+    property alias receiveHost: textReceiveHost
+    property alias receivePort: spinReceivePort
+
+    property alias sendType: comboxSendType
+    property alias sendSSL: comboxSendSSL
+    property alias sendHost: textSendHost
+    property alias sendPort: spinSendPort
+    property alias sendAuth: grpSendAuth
+    property alias sendUser: textSendUser
+    property alias sendPsw: textSendPsw
+
     RowLayout {
         Layout.fillWidth: true
-        Text {
+        Label {
             text: qsTr("Nom du compte :")
-            font.pixelSize: 12
+            verticalAlignment: Text.AlignVCenter
         }
         TextField {
             id: textName
@@ -22,14 +44,19 @@ ColumnLayout {
 
     RowLayout {
         Layout.fillWidth: true
-        Text {
+        Label {
             text: qsTr("Adresse :")
-            font.pixelSize: 12
+            verticalAlignment: Text.AlignVCenter
         }
-        TextField {
+        MailField {
             id: textMail
-            placeholderText: qsTr("adr@domain.com")
             Layout.fillWidth: true
+        }
+
+        Button {
+            id: autoDetect
+            text: qsTr("Auto-detect config.")
+            transformOrigin: Item.Right
         }
     }
 
@@ -39,28 +66,27 @@ ColumnLayout {
         RowLayout {
             spacing: 5
             Layout.fillWidth: true
-            Text {
+            Label {
                 text: qsTr("Nom d'utilisateur :")
-                font.pixelSize: 12
+                verticalAlignment: Text.AlignVCenter
             }
             TextField {
                 id: textUser
                 Layout.fillWidth: true
                 placeholderText: qsTr("user")
+                inputMethodHints: Qt.ImhNoAutoUppercase
             }
         }
         RowLayout {
             spacing: 5
             Layout.fillWidth: true
-            Text {
+            Label {
                 text: qsTr("Mot de passe :")
-                font.pixelSize: 12
+                verticalAlignment: Text.AlignVCenter
             }
-            TextField {
+            PasswordField {
                 id: textPwd
                 Layout.fillWidth: true
-                placeholderText: qsTr("pwd")
-                echoMode: TextInput.Password
             }
         }
     }
@@ -82,29 +108,31 @@ ColumnLayout {
 
                     ComboBox {
                         id: comboxReceiveType
-                        width: 50
+                        width: 40
                     }
                     ComboBox {
                         id: comboxReceiveSSL
-                        width: 80
+                        width: 40
                     }
 
-                    Text {
+                    Label {
                         text: qsTr("Host :")
                     }
                     TextField {
                         id: textReceiveHost
                         placeholderText: qsTr("recv.server.com")
                         Layout.fillWidth: true
+                        inputMethodHints: Qt.ImhNoAutoUppercase
                     }
 
-                    Text {
+                    Label {
                         text: qsTr("Port :")
                     }
-                    TextField {
-                        id: textReceivePort
-                        width: 50
-                        placeholderText: qsTr("123")
+                    SpinBox {
+                        id: spinReceivePort
+                        stepSize: 1
+                        maximumValue: 65535
+                        minimumValue: 1
                     }
                 }
             }
@@ -121,29 +149,31 @@ ColumnLayout {
 
                         ComboBox {
                             id: comboxSendType
-                            width: 50
+                            width: 40
                         }
                         ComboBox {
                             id: comboxSendSSL
-                            width: 80
+                            width: 40
                         }
 
-                        Text {
+                        Label {
                             text: qsTr("Host :")
                         }
                         TextField {
                             id: textSendHost
                             placeholderText: qsTr("smpt.domain.com")
                             Layout.fillWidth: true
+                            inputMethodHints: Qt.ImhNoAutoUppercase
                         }
 
-                        Text {
+                        Label {
                             text: qsTr("Port :")
                         }
-                        TextField {
-                            id: textSendPort
-                            width: 50
-                            placeholderText: qsTr("123")
+                        SpinBox {
+                            id: spinSendPort
+                            stepSize: 1
+                            maximumValue: 65535
+                            minimumValue: 1
                         }
                     }
 
@@ -158,28 +188,27 @@ ColumnLayout {
 
                             RowLayout {
                                 Layout.fillWidth: true
-                                Text {
+                                Label {
                                     text: qsTr("Nom d'utilisateur :")
-                                    font.pixelSize: 12
+                                    verticalAlignment: Text.AlignVCenter
                                 }
                                 TextField {
                                     id: textSendUser
                                     Layout.fillWidth: true
                                     placeholderText: qsTr("user")
+                                    inputMethodHints: Qt.ImhNoAutoUppercase
                                 }
                             }
 
                             RowLayout {
                                 Layout.fillWidth: true
-                                Text {
+                                Label {
                                     text: qsTr("Mot de passe :")
-                                    font.pixelSize: 12
+                                    verticalAlignment: Text.AlignVCenter
                                 }
-                                TextField {
+                                PasswordField {
                                     id: textSendPsw
                                     Layout.fillWidth: true
-                                    placeholderText: qsTr("psw")
-                                    echoMode: TextInput.Password
                                 }
                             }
                         }
