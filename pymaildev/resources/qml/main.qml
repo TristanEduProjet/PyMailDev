@@ -4,10 +4,13 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.2
 
 ApplicationWindow {
+    id: root
     //visible: true
     width: 1200
     height: 800
     title: qsTr("PyMailDev")
+
+    property variant winMail;
 
     menuBar: MenuBar {
         Menu {
@@ -100,7 +103,11 @@ ApplicationWindow {
         id: newmailAction
         text: qsTr("New mail")
         shortcut: StandardKey.New
-        enabled: false
+        onTriggered: {
+            var component = Qt.createComponent("mail.qml");
+            winMail = component.createObject(root);
+            winMail.show();
+        }
     }
     Action {
         id: deletelAction
