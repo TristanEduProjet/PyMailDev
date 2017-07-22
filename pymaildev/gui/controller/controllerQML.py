@@ -19,3 +19,14 @@ class ControllerQML(QObject):
         # self.win.setIcon(QIcon(os.path.join(pymaildev.__resources__, "ico", "Wwalczyszyn-Mail.ico")))
         self.ctx.setContextProperty("pyController", self)
         self.win.show()
+        self.init_post_load()
+
+    # @staticmethod
+    def init_pre_load(context):
+        """Called before load qml"""
+        pass
+
+    # @staticmethod
+    def init_post_load(self):
+        """Call after load qml"""
+        pass

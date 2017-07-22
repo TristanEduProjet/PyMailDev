@@ -42,7 +42,9 @@ def start_qml(args, QmlController):
     apps.append(app)
     setAppIcon(app)
     # app.setWindowIcon(QIcon(os.path.join(pymaildev.__resources__, "ico", "Wwalczyszyn-Mail.ico")))
-    engine = QQmlApplicationEngine(QmlController.__qml__)
+    engine = QQmlApplicationEngine()
+    QmlController.init_pre_load(engine.rootContext())
+    engine.load(QmlController.__qml__)
     engine.quit.connect(app.quit)
     engine.warnings.connect(warns)
     QmlController(engine.rootContext(), engine.rootObjects()[0])  # QQmlContext, QObject

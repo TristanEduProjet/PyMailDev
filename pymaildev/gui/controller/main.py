@@ -16,6 +16,12 @@ class MainController(ControllerQML):
     def __init__(self, context, parent=None):
         super().__init__(context, parent)
 
+    def init_pre_load(context):
+        context.setContextProperty("tableModel", ['t1', 't2', 't3'])
+
+    def init_post_load(self):
+        self.ctx.setContextProperty("tableModel", ['t4', 't5', 't6'])
+
 # <emails.py>
 #     def addEmail(self, person):
 #         self._emails.append(person)

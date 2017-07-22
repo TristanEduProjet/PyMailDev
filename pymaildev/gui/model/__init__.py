@@ -4,6 +4,9 @@
 """Model part of MVC app"""
 
 from .email import Email
-from .parameter import Parameter
+from .emailResume import EmailResume
+from .account import Account
+from .register import registeQmlModels
 
-__all__ = ['email', 'parameter']
+__all__ = ['email', 'emailResume', 'account', 'register']
+__models__ = [Email, EmailResume, Account]

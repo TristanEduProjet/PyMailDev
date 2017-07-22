@@ -12,6 +12,9 @@ ApplicationWindow {
 
     property variant winMail;
     property variant winAccount: AccountParams {}
+    property variant tree: form.tree
+    property variant table: form.table
+    property variant text: form.text
 
     menuBar: MenuBar {
         Menu {
@@ -89,6 +92,7 @@ ApplicationWindow {
     }
 
     MainForm {
+        id: form
         anchors.fill: parent
         /*mouseArea.onClicked: {
             console.log(qsTr('Clicked on background. Text: "' + textEdit.text + '"'))

@@ -9,9 +9,12 @@ import QtQuick.LocalStorage 2.0
 import QtQuick.Extras 1.4
 
 Rectangle {
-
     width: 660
     height: 460
+
+    property variant tree: treeView
+    property variant table: tableView
+    property variant text: textArea
 
     SplitView {
         anchors.fill: parent
@@ -58,6 +61,19 @@ Rectangle {
                 anchors.topMargin: 0
                 Layout.fillWidth: true
                 verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
+                TableViewColumn {
+                    title: qsTr("From")
+                    role: "from"
+                }
+                TableViewColumn {
+                    title: qsTr("Object")
+                    role: "object"
+                }
+                TableViewColumn {
+                    title: qsTr("Date")
+                    role: "sendOn"
+                }
+                model: tableModel
             }
 
             TextArea {
