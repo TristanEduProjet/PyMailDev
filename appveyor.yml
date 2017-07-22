@@ -7,21 +7,21 @@ branches:
 
 environment:
   matrix:
-  - _Python: C:\Python33
-  - _Python: C:\Python33-x64
-    DISTUTILS_USE_SDK: "1"
-    MSSdk: "1"
-    TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
-  - _Python: C:\Python34
-  - _Python: C:\Python34-x64
-    DISTUTILS_USE_SDK: "1"
-    MSSdk: "1"
-    TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
-  - _Python: C:\Python35
-  - _Python: C:\Python35-x64
-  - _Python: C:\Python36
-  - _Python: C:\Python36-x64
-  #fast_finish: true
+    #- _Python: C:\Python33
+    #- _Python: C:\Python33-x64
+    #  DISTUTILS_USE_SDK: "1"
+    #  MSSdk: "1"
+    #  TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
+    #- _Python: C:\Python34
+    #- _Python: C:\Python34-x64
+    #  DISTUTILS_USE_SDK: "1"
+    #  MSSdk: "1"
+    #  TOX_TESTENV_PASSENV: "DISTUTILS_USE_SDK MSSdk INCLUDE LIB"
+    - _Python: C:\Python35
+    - _Python: C:\Python35-x64
+    - _Python: C:\Python36
+    - _Python: C:\Python36-x64
+    #fast_finish: true
 
 init:
   - git config --global core.autocrlf input
@@ -39,6 +39,7 @@ install:
   - pip --version
   - pip install twine setuptools nose coverage
   #- cmd: rem python setup.py develop
+  - pip install -U "pyqt5>=5.6"
   - pip install -r requirements.txt
   - pip install flake8-junit-report
   - pylint --version

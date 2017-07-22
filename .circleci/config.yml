@@ -33,12 +33,13 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt-get --assume-yes install python3-setuptools python3-setuptools-git python3-setuptools-scm python-setuptools-whl
-            sudo apt-get --assume-yes install python3-pyqt5 python3-pyqt5.qtquick python3-pyqt5.qtsvg python3-pyqt5.qtwebengine python3-pyqt5.qtwebkit
+            sudo apt-get --assume-yes install python3-setuptools python3-setuptools-git python-setuptools-whl
+            sudo apt-get --assume-yes install python3-pyqt5 python3-pyqt5.qtquick python3-pyqt5.qtsvg python3-pyqt5.qtwebkit
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
             pip install flake8-junit-report
+          #aptget python3-setuptools-scm python3-pyqt5.qtwebengine
           #pip install nose tox pytest flake8-html
 
       #- run:

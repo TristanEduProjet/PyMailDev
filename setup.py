@@ -60,7 +60,9 @@ setup(name=pymaildev.__fullname__,
                       'setuptools_scm',
                       'pypandoc'],  # setuptools_scm_git_archive pytest-runner
       # use_scm_version=True, bug avec bdist_msi
-      install_requires=['pyqt5>=5.6'],  # 'lib>=1.0.0', 'lib>=1.2.0,<=1.4.3x'
+      install_requires=[  # 'lib>=1.0.0, 'lib>=1.2.0,<=1.4.3x'
+          'pyqt5>=5.6.0'  # min on pypi is cp34 with 5.7.1 -> sip>=4.19 indispo pour cp34 ...
+          ],
       tests_require=['unittest-xml-reporting'],  # pytest pytest-cov pytest-xdist tox nose
       test_suite='pymaildev_tests',  # pymail_tests._MainTest.test_all
       cmdclass={'lint': LintCommand,
