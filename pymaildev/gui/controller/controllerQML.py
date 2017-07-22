@@ -8,10 +8,12 @@ import pymaildev
 from PyQt5.QtCore import QObject
 from PyQt5.QtGui import QIcon
 
+
 class ControllerQML(QObject):
     """Abstract QML controller"""
 
     def __init__(self, context, parent=None):
+        """..."""
         # super(type(self), self).__init__(parent)
         super().__init__(parent)
         self.win = parent
@@ -21,7 +23,7 @@ class ControllerQML(QObject):
         self.win.show()
         self.init_post_load()
 
-    # @staticmethod
+    @staticmethod
     def init_pre_load(context):
         """Called before load qml"""
         pass

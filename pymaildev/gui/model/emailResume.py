@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""Email (partial for resume) model"""
+
 from PyQt5.QtCore import QObject, pyqtProperty
+
 
 class EmailResume(QObject):
     """Email simple/partial model"""
 
     def __init__(self, parent=None):
+        """..."""
         super().__init__(parent)
 
     @pyqtProperty('QString')
     @property
     def of(self):
+        """..."""
         return self._from
 
     @of.setter
@@ -21,6 +26,7 @@ class EmailResume(QObject):
     @pyqtProperty('QString')
     @property
     def subject(self):
+        """..."""
         return self._subject
 
     @subject.setter

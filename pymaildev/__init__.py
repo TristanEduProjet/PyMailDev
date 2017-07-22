@@ -15,4 +15,4 @@ __fullname__ = 'PyMailDev'
 # print resource_string('proj.resources.images', 'pic2.png').encode('base64')
 __resources__ = __import__('os').path.join(
     __import__('os').path.dirname(__import__('os').path.abspath(__file__)),
-     "resources")
+    "resources")

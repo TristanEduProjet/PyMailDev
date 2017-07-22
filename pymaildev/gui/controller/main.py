@@ -8,18 +8,23 @@ import os
 import pymaildev
 from .controllerQML import ControllerQML
 
+
 class MainController(ControllerQML):
     """Controller of main.qml"""
 
     __qml__ = os.path.join(pymaildev.__resources__, "qml", "main.qml")
 
     def __init__(self, context, parent=None):
+        """..."""
         super().__init__(context, parent)
 
+    @staticmethod
     def init_pre_load(context):
+        """..."""
         context.setContextProperty("tableModel", ['t1', 't2', 't3'])
 
     def init_post_load(self):
+        """..."""
         self.ctx.setContextProperty("tableModel", ['t4', 't5', 't6'])
 
 # <emails.py>

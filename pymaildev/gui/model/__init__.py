@@ -6,7 +6,7 @@
 from .email import Email
 from .emailResume import EmailResume
 from .account import Account
-from .register import registeQmlModels
+from .register import registe_qml_models
 
 __all__ = ['email', 'emailResume', 'account', 'register']
 __models__ = [Email, EmailResume, Account]

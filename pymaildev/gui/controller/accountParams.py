@@ -10,12 +10,14 @@ import os
 import pymaildev
 from .controllerQML import ControllerQML
 
+
 class AccountParamsController(ControllerQML):
     """Controller of accountParams.qml"""
 
     __qml__ = os.path.join(pymaildev.__resources__, "qml", "accountParams.qml")
 
     def __init__(self, context, parent=None):
+        """..."""
         super().__init__(context, parent)
 
 # <parameters.py>

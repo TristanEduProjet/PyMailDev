@@ -7,12 +7,14 @@ import os
 import pymaildev
 from .controllerQML import ControllerQML
 
+
 class MailController(ControllerQML):
     """Controller of mail.qml"""
 
     __qml__ = os.path.join(pymaildev.__resources__, "qml", "mail.qml")
 
     def __init__(self, context, parent=None):
+        """..."""
         super().__init__(context, parent)
 
 # <sendFrom.py>
