@@ -7,7 +7,7 @@ Package principal du programme.
 Voir le readme ou le dépôt Git pour plus d'information.
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.5'
 __fullname__ = 'PyMailDev'
 
 # from pkg_resources import resource_string, resource_listdir

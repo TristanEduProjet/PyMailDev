@@ -14,10 +14,7 @@ Item {
         anchors.fill: parent
 
         RowLayout {
-            width: 100
-            height: 100
             Layout.fillWidth: true
-
             Text {
                 text: qsTr("From :")
                 transformOrigin: Item.Left
@@ -25,18 +22,17 @@ Item {
                 textFormat: Text.PlainText
                 font.pixelSize: 12
             }
-
             TextField {
                 id: textFrom
                 text: qsTr("Text Field")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
+                enabled: false
             }
         }
 
         RowLayout {
-            width: 100
-            height: 100
+            Layout.fillWidth: true
             Text {
                 text: qsTr("To :")
                 textFormat: Text.PlainText
@@ -44,19 +40,16 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 transformOrigin: Item.Left
             }
-
             TextField {
                 id: textTo
                 text: qsTr("Text Field")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
-            Layout.fillWidth: true
         }
 
         RowLayout {
-            width: 100
-            height: 100
+            Layout.fillWidth: true
             Text {
                 text: qsTr("Cc :")
                 textFormat: Text.PlainText
@@ -64,19 +57,16 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 transformOrigin: Item.Left
             }
-
             TextField {
                 id: textCc
                 text: qsTr("Text Field")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
-            Layout.fillWidth: true
         }
 
         RowLayout {
-            width: 100
-            height: 100
+            Layout.fillWidth: true
             Text {
                 text: qsTr("Cci :")
                 textFormat: Text.PlainText
@@ -84,19 +74,16 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 transformOrigin: Item.Left
             }
-
             TextField {
                 id: textCci
                 text: qsTr("Text Field")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
-            Layout.fillWidth: true
         }
 
         RowLayout {
-            width: 100
-            height: 100
+            Layout.fillWidth: true
             Text {
                 text: qsTr("Subject :")
                 textFormat: Text.PlainText
@@ -104,40 +91,32 @@ Item {
                 verticalAlignment: Text.AlignVCenter
                 transformOrigin: Item.Left
             }
-
             TextField {
                 id: textSubject
                 text: qsTr("Text Field")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
-            Layout.fillWidth: true
         }
 
         ColumnLayout {
-            width: 100
-            height: 100
             Layout.fillWidth: true
-
             TextArea {
                 id: msgArea
                 text: qsTr("Text Area")
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                //textFormat: Qt.RichText
             }
         }
 
         RowLayout {
-            width: 100
-            height: 100
             Layout.fillWidth: true
-
             Button {
                 id: btnSend
                 text: qsTr("Send")
                 Layout.fillWidth: true
             }
-
             Button {
                 id: btnClear
                 text: qsTr("Clear message")
@@ -146,15 +125,14 @@ Item {
         }
 
         ColumnLayout {
-            width: 100
             Layout.fillWidth: true
-
             TextArea {
                 id: logArea
                 text: qsTr("Log Area")
                 enabled: false
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+                //textFormat: Qt.RichText
             }
         }
     }
