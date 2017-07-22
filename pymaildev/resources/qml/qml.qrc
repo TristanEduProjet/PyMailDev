@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+        <file>mail.qml</file>
+        <file>MailForm.ui.qml</file>
+        <file>AccountParams.qml</file>
+        <file>AccountParamsForm.ui.qml</file>
+    </qresource>
+    <qresource prefix="/part">
+        <file>MailField.qml</file>
+        <file>PasswordField.qml</file>
+        <file>ToolBarSeparator.qml</file>
+    </qresource>
+    <qresource prefix="/icons/16x16">
+        <file>../icons/16x16/Application.png</file>
+        <file>../icons/16x16/Exit.png</file>
+        <file>../icons/16x16/Copy.png</file>
+        <file>../icons/16x16/Cut.png</file>
+        <file>../icons/16x16/Paste.png</file>
+        <file>../icons/16x16/Erase.png</file>
+        <file>../icons/16x16/Create.png</file>
+        <file>../icons/16x16/Redo.png</file>
+        <file>../icons/16x16/Undo.png</file>
+        <file>../icons/16x16/Save.png</file>
+    </qresource>
+    <qresource prefix="/icons/24x24">
+        <file>../icons/24x24/Application.png</file>
+        <file>../icons/24x24/Exit.png</file>
+        <file>../icons/24x24/Copy.png</file>
+        <file>../icons/24x24/Cut.png</file>
+        <file>../icons/24x24/Paste.png</file>
+        <file>../icons/24x24/Erase.png</file>
+        <file>../icons/24x24/Create.png</file>
+        <file>../icons/24x24/Redo.png</file>
+        <file>../icons/24x24/Undo.png</file>
+        <file>../icons/24x24/Save.png</file>
+    </qresource>
+</RCC>

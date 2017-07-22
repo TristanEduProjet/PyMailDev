@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""..."""
+
 import base64
 
 
@@ -11,11 +13,11 @@ class Encryption:
     def encode(key, clear):
         """
         Encode a string in Base64
+
         :param key: Secret message
         :param clear: String to encode
         :return: Encoded String
         """
-
         enc = []
         for i in range(len(clear)):
             key_c = key[i % len(key)]
@@ -27,11 +29,11 @@ class Encryption:
     def decode(key, enc):
         """
         Decode a Base64' String
+
         :param key: Secret message
         :param enc: String to decode
         :return: Decoded String
         """
-
         dec = []
         enc = base64.urlsafe_b64decode(enc).decode()
         for i in range(len(enc)):
