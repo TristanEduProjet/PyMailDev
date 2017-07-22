@@ -12,22 +12,6 @@
         <file>PasswordField.qml</file>
         <file>ToolBarSeparator.qml</file>
     </qresource>
-    <qresource prefix="/menu">
-        <file>../menu/Application.png</file>
-        <file>../menu/Exit.png</file>
-        <file>../menu/Copy.png</file>
-        <file>../menu/Cut.png</file>
-        <file>../menu/Paste.png</file>
-        <file>../menu/Save.png</file>
-    </qresource>
-    <qresource prefix="/toolbar">
-        <file>../toolbar/Copy.png</file>
-        <file>../toolbar/Cut.png</file>
-        <file>../toolbar/Delete.png</file>
-        <file>../toolbar/Paste.png</file>
-        <file>../toolbar/Redo.png</file>
-        <file>../toolbar/Undo.png</file>
-    </qresource>
     <qresource prefix="/icons/16x16">
         <file>../icons/16x16/Application.png</file>
         <file>../icons/16x16/Exit.png</file>

@@ -94,6 +94,7 @@ ApplicationWindow {
         text: qsTr("Cut")
         shortcut: StandardKey.Cut
         //onTriggered:
+        //iconName: "edit-cut"
         iconName: "Cut"
         enabled: false
     }
@@ -102,6 +103,7 @@ ApplicationWindow {
         text: qsTr("Copy")
         shortcut: StandardKey.Copy
         //onTriggered:
+        //iconName: "edit-copy"
         iconName: "Copy"
         enabled: false
     }
@@ -110,6 +112,7 @@ ApplicationWindow {
         text: qsTr("Paste")
         shortcut: StandardKey.Paste
         //onTriggered:
+        //iconName: "edit-paste"
         iconName: "Paste"
         enabled: false
     }

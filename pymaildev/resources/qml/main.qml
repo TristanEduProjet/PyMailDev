@@ -11,6 +11,7 @@ ApplicationWindow {
     title: qsTr("PyMailDev")
 
     property variant winMail;
+    property variant winAccount: AccountParams {}
 
     menuBar: MenuBar {
         Menu {
@@ -18,10 +19,9 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("Options")
                 iconSource: "../icons/16x16/Application.png"
-                onTriggered: dialogAccount.open()
+                onTriggered: winAccount.open()
                 shortcut: StandardKey.Preferences
             }
-            AccountParams { id: dialogAccount }
             MenuSeparator {}
             MenuItem {
                 text: qsTr("Exit")
