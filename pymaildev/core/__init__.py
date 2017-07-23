@@ -6,3 +6,7 @@ Partie technique de l'application.
 
 (Utilitaires)
 """
+
+from .server import *
+
+__all__ = ['server']
