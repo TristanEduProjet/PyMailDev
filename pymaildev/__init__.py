@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-Package principal du programme.
+Main program's package
 
-Voir le readme ou le dépôt Git pour plus d'information.
+For more informations, see the README.md file, or the GitHub repository
 """
 
 __version__ = '0.1.5'

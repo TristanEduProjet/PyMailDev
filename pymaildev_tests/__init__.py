@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Tests du package pymaildev"""
+"""Package tests of pymaildev"""
 
 # __all__ = ["will get rewritten"] # Don't modify the line above, or this line!
 # import automodinit, os

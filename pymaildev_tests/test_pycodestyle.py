@@ -1,7 +1,7 @@
 #!python
 # -*- coding: utf-8 -*-
 
-"""Test conformité (PEP8) du code du package"""
+"""Compliance test (PEP8) of the package's code"""
 
 import unittest
 import pycodestyle
@@ -17,7 +17,7 @@ class CodeStyleTest(unittest.TestCase):
         # , config_file='/path/to/tox.ini', ignore=['E501']
 
     def test_conformance(self):
-        """Test that we conform to PEP-8 (pyCodeStyle)."""
+        """Compliance test to PEP-8 (pyCodeStyle)."""
         style = self.get_style()
         result = style.check_files(['setup.py', 'setup_extends.py', 'pymaildev', 'pymaildev_tests'])  # ['file1.py', 'file2.py']
         self.assertEqual(result.total_errors, 0, "Found code style errors (and warnings).")

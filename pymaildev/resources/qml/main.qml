@@ -20,7 +20,7 @@ ApplicationWindow {
         Menu {
             title: qsTr("&File")
             MenuItem {
-                text: qsTr("Options")
+                text: qsTr("Settings")
                 iconSource: "../icons/16x16/Application.png"
                 onTriggered: winAccount.open()
                 shortcut: StandardKey.Preferences
@@ -71,7 +71,7 @@ ApplicationWindow {
                 iconSource: "../icons/24x24/Create.png"
             }
             ToolButton {
-                action: deletelAction
+                action: deleteAction
                 iconSource: "../icons/24x24/Erase.png"
             }
             ToolBarSeparator {}
@@ -114,7 +114,7 @@ ApplicationWindow {
         }
     }
     Action {
-        id: deletelAction
+        id: deleteAction
         text: qsTr("Delete")
         shortcut: StandardKey.Delete
         enabled: false

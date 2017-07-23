@@ -56,7 +56,7 @@ class Email(EmailResume):
 
     @staticmethod
     def create(ffrom, to, cc, cci, subject, message, parent=None):
-        """Create object mail from existing data"""
+        """Create Mail object from existing data"""
         mail = Email(parent)
         mail.of(ffrom)
         mail.to(to)

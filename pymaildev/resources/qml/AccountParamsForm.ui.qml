@@ -32,12 +32,12 @@ ColumnLayout {
     RowLayout {
         Layout.fillWidth: true
         Label {
-            text: qsTr("Nom du compte :")
+            text: qsTr("Account name:")
             verticalAlignment: Text.AlignVCenter
         }
         TextField {
             id: textName
-            placeholderText: qsTr("Perso")
+            placeholderText: qsTr("Account name...")
             Layout.fillWidth: true
         }
     }
@@ -45,7 +45,7 @@ ColumnLayout {
     RowLayout {
         Layout.fillWidth: true
         Label {
-            text: qsTr("Adresse :")
+            text: qsTr("Email address:")
             verticalAlignment: Text.AlignVCenter
         }
         MailField {
@@ -67,13 +67,13 @@ ColumnLayout {
             spacing: 5
             Layout.fillWidth: true
             Label {
-                text: qsTr("Nom d'utilisateur :")
+                text: qsTr("Username:")
                 verticalAlignment: Text.AlignVCenter
             }
             TextField {
                 id: textUser
                 Layout.fillWidth: true
-                placeholderText: qsTr("user")
+                placeholderText: qsTr("Username...")
                 inputMethodHints: Qt.ImhNoAutoUppercase
             }
         }
@@ -81,7 +81,7 @@ ColumnLayout {
             spacing: 5
             Layout.fillWidth: true
             Label {
-                text: qsTr("Mot de passe :")
+                text: qsTr("Password:")
                 verticalAlignment: Text.AlignVCenter
             }
             PasswordField {
@@ -92,7 +92,7 @@ ColumnLayout {
     }
 
     GroupBox {
-        title: qsTr("Serveur")
+        title: qsTr("Server")
         Layout.fillWidth: true
 
         ColumnLayout {
@@ -100,7 +100,7 @@ ColumnLayout {
             Layout.fillWidth: true
 
             GroupBox {
-                title: qsTr("Réception")
+                title: qsTr("Reception")
                 Layout.fillWidth: true
                 RowLayout {
                     spacing: 6
@@ -116,7 +116,7 @@ ColumnLayout {
                     }
 
                     Label {
-                        text: qsTr("Host :")
+                        text: qsTr("Host:")
                     }
                     TextField {
                         id: textReceiveHost
@@ -126,7 +126,7 @@ ColumnLayout {
                     }
 
                     Label {
-                        text: qsTr("Port :")
+                        text: qsTr("Port:")
                     }
                     SpinBox {
                         id: spinReceivePort
@@ -138,7 +138,7 @@ ColumnLayout {
             }
 
             GroupBox {
-                title: qsTr("Envoi")
+                title: qsTr("Sending")
                 Layout.fillWidth: true
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -157,7 +157,7 @@ ColumnLayout {
                         }
 
                         Label {
-                            text: qsTr("Host :")
+                            text: qsTr("Host:")
                         }
                         TextField {
                             id: textSendHost
@@ -167,7 +167,7 @@ ColumnLayout {
                         }
 
                         Label {
-                            text: qsTr("Port :")
+                            text: qsTr("Port:")
                         }
                         SpinBox {
                             id: spinSendPort
@@ -179,7 +179,7 @@ ColumnLayout {
 
                     GroupBox {
                         id: grpSendAuth
-                        title: "Authentification différente"
+                        title: "Other authentication"
                         checked: false
                         checkable: true
                         Layout.fillWidth: true
@@ -189,13 +189,13 @@ ColumnLayout {
                             RowLayout {
                                 Layout.fillWidth: true
                                 Label {
-                                    text: qsTr("Nom d'utilisateur :")
+                                    text: qsTr("Username:")
                                     verticalAlignment: Text.AlignVCenter
                                 }
                                 TextField {
                                     id: textSendUser
                                     Layout.fillWidth: true
-                                    placeholderText: qsTr("user")
+                                    placeholderText: qsTr("Username...")
                                     inputMethodHints: Qt.ImhNoAutoUppercase
                                 }
                             }
@@ -203,7 +203,7 @@ ColumnLayout {
                             RowLayout {
                                 Layout.fillWidth: true
                                 Label {
-                                    text: qsTr("Mot de passe :")
+                                    text: qsTr("Password:")
                                     verticalAlignment: Text.AlignVCenter
                                 }
                                 PasswordField {
@@ -221,13 +221,13 @@ ColumnLayout {
     RowLayout {
         Layout.fillWidth: true
         Button {
-            id: btnCancel
-            text: qsTr("Annuler")
+            id: btnSave
+            text: qsTr("Validate")
             Layout.fillWidth: true
         }
         Button {
-            id: btnSave
-            text: qsTr("Valider")
+            id: btnCancel
+            text: qsTr("Cancel")
             Layout.fillWidth: true
         }
     }

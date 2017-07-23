@@ -3,6 +3,6 @@ import QtQuick.Controls 1.4
 
 TextField {
     inputMethodHints: Qt.ImhNoAutoUppercase | Qt.ImhNoPredictiveText | Qt.ImhSensitiveData
-    placeholderText: qsTr("pswd")
+    placeholderText: qsTr("Password...")
     echoMode: TextInput.Password
 }

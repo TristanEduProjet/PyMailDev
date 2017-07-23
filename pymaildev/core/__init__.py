@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Partie technique de l'application.
+Technical part of the application
 
 (Utilitaires)
 """

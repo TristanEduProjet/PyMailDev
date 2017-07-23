@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""SetupTools : packaging du programme"""
+"""SetupTools : Program's packaging"""
 
 try:
     from setuptools import setup, find_packages

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Abstraction d'un controlleur QML"""
+"""QML controller abstraction"""
 
 import os
 import pymaildev
@@ -30,5 +30,5 @@ class ControllerQML(QObject):
 
     # @staticmethod
     def init_post_load(self):
-        """Call after load qml"""
+        """Called after load qml"""
         pass

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Test conformité PEP8 du package"""
+"""Compliance test (PEP8) of the package"""
 
 import unittest
 import pep8
@@ -17,7 +17,7 @@ class PEP8Test(unittest.TestCase):
         # config_file=True
 
     def test_pep8_conformance(self):
-        """Test that we conform to PEP8."""
+        """Compliance test to PEP8."""
         pep8style = self.get_style()
         result = pep8style.check_files(['setup.py', 'setup_extends.py', 'pymaildev', 'pymaildev_tests'])  # ['file1.py', 'file2.py']
         self.assertEqual(result.total_errors, 0, "Found code style errors (and warnings).")

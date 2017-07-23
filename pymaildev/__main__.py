@@ -4,7 +4,7 @@
 """
 Main PyMailDev
 
-Point d'entrée si appelé comme module, ou comme programme.
+Entry point if called as a module or a program.
 """
 
 import sys

@@ -33,11 +33,10 @@ class EmailResume(QObject):
     def subject(self, subject):
         self._subject = subject
 
-    # TODO : date reçu
 
     @staticmethod
     def create(ffrom, subject, message, parent=None):
-        """Create object mail from existing data"""
+        """Create Mail object from existing data"""
         mail = EmailResume(parent)
         mail.of(ffrom)
         mail.subject(subject)

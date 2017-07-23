@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Mail compose window controller"""
+"""Mail window' composer controller"""
 
 import os
 import pymaildev

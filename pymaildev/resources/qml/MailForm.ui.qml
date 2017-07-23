@@ -16,7 +16,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: qsTr("From :")
+                text: qsTr("From:")
                 transformOrigin: Item.Left
                 verticalAlignment: Text.AlignVCenter
                 textFormat: Text.PlainText
@@ -24,7 +24,7 @@ Item {
             }
             TextField {
                 id: textFrom
-                text: qsTr("Text Field")
+                text: qsTr("From...")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
                 enabled: false
@@ -34,7 +34,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: qsTr("To :")
+                text: qsTr("To:")
                 textFormat: Text.PlainText
                 font.pixelSize: 12
                 verticalAlignment: Text.AlignVCenter
@@ -42,7 +42,7 @@ Item {
             }
             TextField {
                 id: textTo
-                text: qsTr("Text Field")
+                text: qsTr("To...")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
@@ -51,7 +51,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: qsTr("Cc :")
+                text: qsTr("Cc:")
                 textFormat: Text.PlainText
                 font.pixelSize: 12
                 verticalAlignment: Text.AlignVCenter
@@ -59,7 +59,7 @@ Item {
             }
             TextField {
                 id: textCc
-                text: qsTr("Text Field")
+                text: qsTr("Cc...")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
@@ -68,7 +68,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: qsTr("Cci :")
+                text: qsTr("Cci:")
                 textFormat: Text.PlainText
                 font.pixelSize: 12
                 verticalAlignment: Text.AlignVCenter
@@ -76,7 +76,7 @@ Item {
             }
             TextField {
                 id: textCci
-                text: qsTr("Text Field")
+                text: qsTr("Cci...")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
@@ -85,7 +85,7 @@ Item {
         RowLayout {
             Layout.fillWidth: true
             Text {
-                text: qsTr("Subject :")
+                text: qsTr("Subject:")
                 textFormat: Text.PlainText
                 font.pixelSize: 12
                 verticalAlignment: Text.AlignVCenter
@@ -93,7 +93,7 @@ Item {
             }
             TextField {
                 id: textSubject
-                text: qsTr("Text Field")
+                text: qsTr("Subject...")
                 transformOrigin: Item.Right
                 Layout.fillWidth: true
             }
@@ -103,7 +103,7 @@ Item {
             Layout.fillWidth: true
             TextArea {
                 id: msgArea
-                text: qsTr("Text Area")
+                text: qsTr("Email sent with PyMailDev.")
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 //textFormat: Qt.RichText

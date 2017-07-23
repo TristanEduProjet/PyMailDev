@@ -5,15 +5,15 @@ import QtQuick.Controls.Styles.Desktop 1.0
 import QtQuick.Layouts 1.3
 
 ApplicationWindow {
-    title: qsTr("Composition mail")
+    title: qsTr("Mail composer")
     width: 800
     height: 600
     id: window
     menuBar: MenuBar {
         Menu {
-            title: qsTr("&Fichier")
+            title: qsTr("&File")
             MenuItem {
-                text: qsTr("Sauvgarder")
+                text: qsTr("Save")
                 iconSource: "../icons/16x16/Save.png"
                 onTriggered: console.log("menu item clicked")
                 shortcut: StandardKey.Save

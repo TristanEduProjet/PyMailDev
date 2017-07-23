@@ -7,7 +7,7 @@ import QtQuick.Dialogs 1.2
 Dialog {
     width: 420
     height: 300
-    title: qsTr("Account parameter")
+    title: qsTr("Account parameters")
     modality: Qt.WindowModal
 
     signal onCancel()
@@ -61,7 +61,7 @@ Dialog {
     ListModel {
         id: listSSL
         ListElement {
-            text: "En clair"
+            text: "Normal"
         }
         ListElement {
             text: "StatTLS"

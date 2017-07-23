@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Point d'appel principal des tests."""
+"""Main entry point for tests"""
 
 import unittest
 # import doctest

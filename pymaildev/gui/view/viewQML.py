@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""Abstraction d'une vue QML"""
+"""QML vue abstraction"""
 
 import os
 import pymaildev
@@ -14,12 +14,12 @@ from PyQt5.QtCore import QUrl, QSize, QDir
 
 __all__ = ['start_qml']
 
-apps = []  # minimise the chances of crashe
+apps = []  # minimise the chances to crash
 # http://pyqt.sourceforge.net/Docs/PyQt5/gotchas.html#crashes-on-exit
 
 
 def start_qml_(args, _qml_controller):
-    """Démarre l'application en graphique"""
+    """Graphical application start"""
     init_qml()
     global apps
     app = QGuiApplication(args)
@@ -38,7 +38,7 @@ def start_qml_(args, _qml_controller):
 
 
 def start_qml(args, _qml_controller):
-    """Démarre l'application en graphique"""
+    """Graphical application start"""
     init_qml()
     global apps
     app = QApplication(args)
@@ -56,7 +56,7 @@ def start_qml(args, _qml_controller):
 
 
 def set_app_icon(app):
-    """Modifie l'icône de l'application"""
+    """Set the application's icon"""
     app_icon = QIcon()
     for s in (16, 24, 32, 48, 64, 72, 96, 128, 256):
         app_icon.addFile(os.path.join(pymaildev.__resources__, "ico", "Wwalczyszyn-Mail-{0}px.png".format(s)), QSize(s, s))
@@ -64,13 +64,13 @@ def set_app_icon(app):
 
 
 def warns(warnings):
-    """Simple fonction de log pour l'app"""
+    """Simple log function for the app"""
     for w in warnings:
         print(w)
 
 
 def init_qml():
-    """Initialise les variables de l'application"""
+    """Initialize the application's variables"""
     registe_qml_models()
     QDir.addSearchPath("", os.path.join(pymaildev.__resources__, "qml"))
     QDir.addSearchPath("icons", os.path.join(pymaildev.__resources__, "icons"))
