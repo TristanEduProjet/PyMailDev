@@ -51,7 +51,7 @@ Dépendances embarquées dans le **setup** (ou *requirements*) :
 Dépendances non embarqués (à installer manuellement) :
   - [Python 3](https://www.python.org/downloads/)
   - [Qt5](https://wiki.qt.io/Main) (section *Quick Access* > Qt 5.x.x)
-    => Uniquement si en dev, sinon bianires embarqués ;)
+    => Uniquement si en dev, sinon binaires embarqués ;)
 
 
 ## Usage

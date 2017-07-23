@@ -48,7 +48,6 @@ class MainController(ControllerQML):
 #         Reply button event
 #         :return:
 #         """
-#         # TODO: Récupérer données de la ligne de l'email et les insérer dans un objet Email
 #
 #         # Load SendForm
 #         reply_form = SendForm()
@@ -61,7 +60,6 @@ class MainController(ControllerQML):
 #         Delete button event
 #         :return:
 #         """
-#         """ TODO: Supprimer email.s coché.s """
 #         # self._emails.__sub__(0)
 #
 #     def __optionsAction(self):
@@ -80,5 +78,3 @@ class MainController(ControllerQML):
 #         Load all Email objects et insert them into the ControlList
 #         :return:
 #         """
-#         """Charger tous les objets Email, et les insérer dans la ControlList"""
-#         # Note : Peut-être utiliser la fonction 'set_value(column, row, value)' pour chaque Email sur lesquels on boucle
