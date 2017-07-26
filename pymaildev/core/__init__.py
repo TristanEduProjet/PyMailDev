@@ -8,5 +8,6 @@ Technical part of the application
 """
 
 from .utils.encryption import Encryption
+from .server import *
 
-__all__ = ['utils.encryption']
+__all__ = ['utils.encryption', 'server']
